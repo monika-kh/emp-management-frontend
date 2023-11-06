@@ -1,0 +1,22 @@
+<nav class="navbar">
+    <div class="brand">
+        <!-- Your brand/logo goes here -->
+        <a routerLink="https://bridgefix.co">Bridgefix Technology Pvt Ltd</a>
+    </div>
+    <ul class="nav-links">
+
+        <li><button mat-button class="menu-button" (click)="getStaff()">Staff</button></li>
+        <div class="nav-links" *ngIf="type==='HR'">
+            <li><button mat-button class="menu-button" (click)="onBtnClick()">Attendence</button></li>
+            <li><button mat-button class="menu-button" (click)="onProfileClick()">Profile</button></li>
+        </div>
+        <div class="nav-links" *ngIf="type !='HR'">
+            <li><button mat-button class="menu-button" (click)="onEditClick()">Edit Profile</button></li>
+        </div>
+        <li><button mat-button class="menu-button" (click)="onBtnClick()">Leaves</button></li>
+       
+        <li><button mat-button class="menu-button" (click)="logout()">Logout</button></li>
+        
+    </ul>
+
+</nav>

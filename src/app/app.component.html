@@ -1,0 +1,18 @@
+<div *ngIf="token != ''">
+    <app-sidebar>
+
+        <div *ngIf="type === 'HR' ">
+            <app-dashboard></app-dashboard>
+        </div>
+
+        <div *ngIf="type === 'EMP' ">
+            <app-user></app-user>
+        </div>
+
+    </app-sidebar>
+
+</div>
+
+<div>
+    <router-outlet></router-outlet>
+</div>

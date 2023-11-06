@@ -1,0 +1,44 @@
+<body>
+<span><h5> Today Date:-</h5> <h4> {{today_date}} </h4></span>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+      
+      <div class="col-sm-12 ">
+        <br>
+        <form [formGroup]="userForm">
+            <table>
+                <tr>
+                    <th>EmpId</th>
+                    <th>Emp Name</th>
+                    <th>Mark Attendence</th>
+                </tr>
+                <tr *ngFor="let user of all_users; let i = index;">
+                    <td>{{user.user_id}}</td>
+                    <td>{{user.name}}</td>
+                    <td *ngIf="user.attendence == true ">
+                        <input type="checkbox" [checked]="user.attendence" (change)="markAttendance(user.user_id)">
+                    </td>
+                    <td *ngIf="user.attendence == false ">
+                        <input type="checkbox" formControlName="attendence" [(ngModel)]="user.attendence"
+                            (change)="markAttendance(user.user_id)">
+                    </td>
+        
+                </tr>
+            </table>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+<br>
+<!-- <div class="container">
+    <div class="row d-flex justify-content-center">
+       <div class="col-sm-12 ">
+        
+       </div>
+    </div>
+</div> -->
+<!-- <div>
+    
+</div> -->
+</body>

@@ -1,0 +1,42 @@
+.table {
+    width: 100%;
+  }
+
+.table-row-alt {
+    background-color: #201dad; /* Set your desired alternate row color */
+  }
+
+.div {
+    border-style: solid;
+  }
+
+.bg{
+  background-color: #eaece5;
+  height: 90vh;
+  border-style: solid;
+  border-bottom: black;
+}
+.gray { background-color:  #e3eaa7 }
+
+body{
+  background-color: black;
+}
+
+.fields {
+  padding-top: 30px;
+}
+
+.dropdown {
+  display: inline-block;
+  margin-right: 25px;
+  width: 10%;
+
+}
+
+.mydiv {
+  padding-top: 40px;
+}
+
+/* .search-box-container {
+  position: relative;
+} */

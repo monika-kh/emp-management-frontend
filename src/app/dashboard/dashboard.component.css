@@ -1,0 +1,30 @@
+.absent {
+    color: red;
+    border-bottom-color: black;
+  }
+
+.table {
+    width: 200%;
+    /* border: #201dad;
+    border-style: solid; */
+
+  }
+  .table-row-alt {
+    background-color: #201dad; /* Set your desired alternate row color */
+  }
+
+.div {
+    border-style: solid;
+  }
+
+.bg{
+  background-color: #eaece5;
+  height: 90vh;
+  border-style: solid;
+  border-bottom: black;
+}
+.gray { background-color:  #e3eaa7 }
+
+body{
+  background-color: black;
+}

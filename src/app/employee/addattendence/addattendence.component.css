@@ -1,0 +1,39 @@
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-left: 10%;
+    margin-right: 5%;
+    vertical-align: middle;
+
+  }
+  
+  td {
+    width: 400px;
+    padding: 5px;
+    border: 1px solid #0e0e0e;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+ 
+
+  th {
+    text-align: center;
+  }
+
+h5 {
+  display:inline
+}
+
+h4 {
+  display:inline
+}
+
+body {
+  background-color:  #e3eaa7;
+  height: 90vh;
+}
+
+input {
+  vertical-align: middle
+}
