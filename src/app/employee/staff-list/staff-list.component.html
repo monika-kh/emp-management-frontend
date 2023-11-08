@@ -1,0 +1,154 @@
+<div>
+  <form [formGroup]="searchForm" class="mydiv">
+    <mat-form-field class="dropdown">
+      <mat-label class="fields">Name</mat-label>
+      <select
+        class="mydiv"
+        [(ngModel)]="selectedName"
+        name="user"
+        formControlName="user"
+        matNativeControl
+        (ngModelChange)="filterData()"
+      >
+        <option *ngFor="let user of usernames" [value]="user">{{ user }}</option>
+      </select>
+    </mat-form-field>
+
+
+    <mat-form-field class="dropdown">
+      <mat-label class="fields">City</mat-label>
+      <select
+        class="mydiv"
+        [(ngModel)]="selectedValue"
+        name="city"
+        formControlName="city"
+        matNativeControl
+        (ngModelChange)="filterData()"
+      >
+        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field class="dropdown">
+      <mat-label class="fields">Technology</mat-label>
+      <select
+        class="mydiv"
+        [(ngModel)]="selectedValue"
+        name="tech"
+        formControlName="tech"
+        matNativeControl
+        (ngModelChange)="filterData()"
+      >
+        <option *ngFor="let tech of cities" [value]="tech">{{ tech }}</option>
+      </select>
+    </mat-form-field>
+
+  </form>
+</div>
+
+<div class="search__table mat-elevation-z8">
+  <ng-container *ngIf="filtereddata; else showOriginalTable">
+    <table mat-table [dataSource]="filtered_emp">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstname + ' ' + element.lastname }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>Username</th>
+        <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef>Department</th>
+        <td mat-cell *matCellDef="let element">{{ element.department }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="tech_known">
+        <th mat-header-cell *matHeaderCellDef>Technologies</th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngFor="let tech of element.technologies_familiar_with">
+            <li>{{ tech.name? tech.name : '-' }}</li>
+          </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let element">{{ element.address ? element.address : '-' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef>City</th>
+        <td mat-cell *matCellDef="let element">{{ element.city ? element.city : '-' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="contact">
+        <th mat-header-cell *matHeaderCellDef>Contact</th>
+        <td mat-cell *matCellDef="let element">{{ element.phone_number ? element.phone_number : '-' }}</td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; let even = even;" [ngClass]="{gray: even}"></tr>
+    </table>
+  </ng-container>
+
+  <ng-template #showOriginalTable>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstname + ' ' + element.lastname }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>Username</th>
+        <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef>Department</th>
+        <td mat-cell *matCellDef="let element">{{ element.department }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="tech_known">
+        <th mat-header-cell *matHeaderCellDef>Technologies</th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngFor="let tech of element.technologies_familiar_with">
+            <li>{{ tech.name? tech.name : '-' }}</li>
+          </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let element">{{ element.address ? element.address : '-' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef>City</th>
+        <td mat-cell *matCellDef="let element">{{ element.city ? element.city : '-' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="contact">
+        <th mat-header-cell *matHeaderCellDef>Contact</th>
+        <td mat-cell *matCellDef="let element">{{ element.phone_number ? element.phone_number : '-' }}</td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; let even = even;" [ngClass]="{gray: even}"></tr>
+    </table>
+  </ng-template>
+</div>
+
